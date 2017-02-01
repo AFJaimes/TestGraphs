@@ -1,0 +1,18 @@
+﻿.bordes {
+    border:1px solid black;
+}
+.container {
+    background-color:white;
+    border-left:1px solid gray;
+    border-right:1px solid gray;
+    min-height:100vh;
+}
+body {
+        font-family: 'Cinzel', serif !important;
+        background-image:url('../imgs/UIS.png');
+        background-repeat:repeat; 
+      }
+p {
+    font-family: 'Comfortaa', cursive !important;
+    font-size:1.1em;
+}

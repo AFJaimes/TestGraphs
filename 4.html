@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Comfortaa" rel="stylesheet">
+    <meta charset="utf-8" />
+    <link href="css/Columnas.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    
+
+</head>
+<body style="background-color:#ffd1d1;">
+    <div class="container" style="text-align:center;">
+        <h2>ENSAYO 4: FLEXIÓN.</h2>
+        <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
+        <div class="row flex-row " style="background-color:white;">
+            <div class="col-md-6 col-sm-12 " id="divcanvas">
+                <canvas class="cnvgrp" id="myChart"></canvas>
+            </div>
+            <div class="col-md-6 col-sm-12 " style="overflow:hidden">
+                <img class="colimg" id="imgcol" style="width:100%; max-width:1000px; max-height:1000px;" src="https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif" />
+            </div>
+        </div>
+        <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
+<!--cambio graficas-->
+            <a href="#" id="grafica1" class="btn btn-lg btn-info">material 1</a>
+            <a href="#" id="grafica2" class="btn btn-lg btn-info">material 2</a>
+            <a href="#" id="grafica3" class="btn btn-lg btn-info">material 3</a>
+            <a href="#" id="grafica4" class="btn btn-lg btn-info">material 4</a>
+        <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
+        <div style="text-align:justify">
+            <p>
+                Se denomina <b>flexión</b> al tipo de deformación que presenta un elemento estructural alargado en una dirección perpendicular a su eje longitudinal. El término "alargado" se aplica cuando una dimensión es dominante frente a las otras. Un caso típico son las vigas, las que están diseñadas para trabajar, principalmente, por flexión. Igualmente, el concepto de flexión se extiende a elementos estructurales superficiales como placas o láminas.<br /><br />
+            </p>
+        </div>
+        <div style="text-align:center;">
+            <a style="color:black;" href="home.html" class="btn btn-lg btn-info">Volver al inicio</a>
+            <button type="button" id="btnayuda" onclick='bootbox.alert("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at felis tempor, mattis mi in, congue turpis. Ut interdum tortor quam, efficitur lacinia elit accumsan non. Integer lobortis, mi et tincidunt sodales, quam ipsum sodales leo, ut malesuada quam quam a justo. Mauris tincidunt sapien tincidunt, tempus turpis eget, bibendum velit. Duis finibus feugiat neque, vel tristique elit ullamcorper non. Vestibulum dui sapien, tempus at posuere sed, luctus sed ipsum. Duis vitae iaculis dui, eget imperdiet ante. Integer posuere purus eget est suscipit finibus. Duis id rhoncus lorem. Cras scelerisque dolor ac ultricies commodo.<br//><br//>Suspendisse at felis mollis, tristique dolor non, sagittis urna. Integer dolor quam, vehicula facilisis nisi at, ultrices fermentum nisl. Ut laoreet, tellus sit amet imperdiet laoreet, nunc quam luctus turpis, eu faucibus nunc tellus dignissim velit. Curabitur ac consequat urna. Fusce venenatis malesuada sapien a hendrerit. Etiam ultricies neque vitae augue auctor, in mattis odio sodales. Praesent pretium erat est, et dictum arcu aliquet sed. Suspendisse potenti. Phasellus a tincidunt justo. Maecenas neque diam, consectetur sit amet gravida eget, suscipit sit amet neque. Fusce rhoncus ligula felis, eu interdum massa cursus vitae. Integer at justo eget sem tincidunt molestie a eu dui. In suscipit urna id elit viverra, quis tempus augue venenatis. Duis et arcu ullamcorper mauris dapibus fringilla non in tortor. Ut vel placerat nunc.</p>")' class="btn btn-lg btn-primary">
+                Ayuda
+            </button>
+            <br /><br />
+        </div>
+    </div>
+</body>
+<script>
+ $('#grafica1').click(function () {
+        // Run onload code.
+        $('#myChart').remove(); // this is my <canvas> element
+        $('#divcanvas').append("<canvas class='cnvgrp' id='myChart'></canvas>");
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        var ctx = document.getElementById("myChart");
+        ctx.height = divHeight;
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            options: {
+                maintainAspectRatio: false,
+                title: {
+                    display: true,
+                    text: 'Grafica de Esfuerzo - Deformación'
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Esfuerzo'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Deformación'
+                        }
+                    }]
+                }
+            },
+            data: {
+                labels: ["0.00821", "0.00884", "0.00934", "0.00997", "0.01048", "0.01098", "0.01149", "0.01212", "0.01326", "0.01363", "0.01439", "0.01502", "0.01565", "0.01641", "0.01717", "0.01793", "0.01868", "0.01944", "0.02045", "0.02146", "0.02272", "0.02399", "0.02512", "0.02651", "0.02878", "0.03106", "0.03358", "0.03762", "0.04166", "0.0505", "0.05428", "0.05984", "0.06565", "0.0707", "0.07448"],
+                datasets: [{
+                    data: [198.9,
+                            397.9,
+                            596.8,
+                            795.8,
+                            994.7,
+                            1193.7,
+                            1392.6,
+                            1591.5,
+                            1790.5,
+                            1989.4,
+                            2188,
+                            2387,
+                            2586,
+                            2785,
+                            2984,
+                            3183,
+                            3382,
+                            3581,
+                            3779,
+                            3978,
+                            4177,
+                            4376,
+                            4575,
+                            4774,
+                            4973,
+                            8753,
+                            8952,
+                            9151,
+                            9051,
+                            9051,
+                            8654,
+                            8455,
+                            8156,
+                            7957,
+                            7659],
+                    backgroundColor: [
+                        'rgba(150, 100, 50, 0.5)']
+                }]
+            }
+        });
+        document.getElementById("myChart").style.maxHeight = divHeight;
+    });
+
+    $('#grafica2').click(function () {
+        // Run onload code.
+        $('#myChart').remove(); // this is my <canvas> element
+        $('#divcanvas').append("<canvas class='cnvgrp' id='myChart'></canvas>");
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        var ctx = document.getElementById("myChart");
+        ctx.height = divHeight;
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            options: {
+                maintainAspectRatio: false,
+                title: {
+                    display: true,
+                    text: 'Grafica de Esfuerzo - Deformación'
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Esfuerzo'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Deformación'
+                        }
+                    }]
+                }
+            },
+            data: {
+                labels: ["0.00492", "0.0053", "0.00568", "0.00566", "0.00568", "0.00694", "0.00732", "0.00783", "0.00821", "0.00884", "0.00934", "0.00997", "0.01048", "0.01098", "0.01149", "0.01212", "0.01326", "0.01363", "0.01439", "0.01502", "0.01565", "0.01641", "0.01717", "0.01793", "0.01868", "0.01944", "0.02045", "0.02146", "0.02272", "0.02399", "0.02512", "0.02651", "0.02878", "0.03106", "0.03358", "0.03762", "0.04166", "0.0505", "0.05428", "0.05984", "0.06565", "0.0707", "0.07448"],
+                datasets: [{
+                    data: [198.9,
+                            397.9,
+                            596.8,
+                            795.8,
+                            994.7,
+                            1193.7,
+                            1392.6,
+                            1591.5,
+                            1790.5,
+                            1989.4,
+                            2188,
+                            2387,
+                            2586,
+                            2785,
+                            2984,
+                            3183,
+                            3382,
+                            3581,
+                            3779,
+                            3978,
+                            4177,
+                            4376,
+                            4575,
+                            4774,
+                            4973,
+                            7162,
+                            7360,
+                            7559,
+                            7758,
+                            7957,
+                            8156,
+                            8355,
+                            8554,
+                            8753,
+                            8952,
+                            9151,
+                            9051,
+                            9051,
+                            8654,
+                            8455,
+                            8156,
+                            7957,
+                            7659],
+                    backgroundColor: [
+                        'rgba(62, 100, 50, 0.5)']
+                }]
+            }
+        });
+        document.getElementById("myChart").style.maxHeight = divHeight;
+    });
+    $('#grafica3').click(function () {
+        // Run onload code.
+        $('#myChart').remove(); // this is my <canvas> element
+        $('#divcanvas').append("<canvas class='cnvgrp' id='myChart'></canvas>");
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        var ctx = document.getElementById("myChart");
+        ctx.height = divHeight;
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            options: {
+                maintainAspectRatio: false,
+                title: {
+                    display: true,
+                    text: 'Grafica de Esfuerzo - Deformación'
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Esfuerzo'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Deformación'
+                        }
+                    }]
+                }
+            },
+            data: {
+                labels: ["0.00492", "0.0053", "0.00568", "0.00566", "0.00568", "0.00694", "0.00732", "0.00783", "0.00821", "0.00884", "0.00934", "0.00997", "0.01048", "0.01098", "0.01149", "0.01212", "0.01326", "0.01363", "0.01439", "0.01502", "0.01565", "0.01641", "0.01717", "0.01793", "0.01868", "0.01944", "0.02045", "0.02146", "0.02272", "0.02399", "0.02512", "0.02651", "0.02878", "0.03106", "0.03358", "0.03762", "0.04166", "0.0505", "0.05428", "0.05984", "0.06565", "0.0707", "0.07448"],
+                datasets: [{
+                    data: [198.9,
+                            397.9,
+                            596.8,
+                            795.8,
+                            994.7,
+                            1193.7,
+                            1392.6,
+                            1591.5,
+                            1790.5,
+                            1989.4,
+                            2188,
+                            2387,
+                            2586,
+                            2785,
+                            2984,
+                            3183,
+                            3382,
+                            3581,
+                            3779,
+                            3978,
+                            4177,
+                            4376,
+                            4575,
+                            4774,
+                            4973,
+                            7162,
+                            7360,
+                            7559,
+                            7758,
+                            7957,
+                            8156,
+                            8355,
+                            8554,
+                            8753,
+                            8952,
+                            9151,
+                            9051,
+                            9051,
+                            8654,
+                            8455,
+                            8156,
+                            7957,
+                            7659],
+                    backgroundColor: [
+                        'rgba(0, 100, 130, 0.5)']
+                }]
+            }
+        });
+        document.getElementById("myChart").style.maxHeight = divHeight;
+    });
+    $('#grafica4').click(function () {
+    $(document).ready(function () {
+        var tmpImg = new Image();
+        tmpImg.src = $('#imgcol').attr('src');
+        tmpImg.onload = function () {
+            // Run onload code.
+            debugger;
+            $('#myChart').remove(); // this is my <canvas> element
+            $('#divcanvas').append("<canvas class='cnvgrp' id='myChart'></canvas>");
+            var divHeight = Math.round($('#imgcol').height()) - 2;
+            var ctx = document.getElementById("myChart");
+            ctx.height = divHeight;
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                options: {
+                    maintainAspectRatio: false,
+                    title: {
+                        display: true,
+                        text: 'Grafica de Esfuerzo - Deformación'
+                    },
+                    scales: {
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Esfuerzo'
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Deformación'
+                            }
+                        }]
+                    }
+                },
+                data: {
+                    labels: ["0.00013", "0.00", "0.00114", "0.00141", "0.00202", "0.00252", "0.00303", "0.00353", "0.00404", "0.00442", "0.00492", "0.0053", "0.00568", "0.00566", "0.00568", "0.00694", "0.00732", "0.00783", "0.00821", "0.00884", "0.00934", "0.00997", "0.01048", "0.01098", "0.01149", "0.01212", "0.01326", "0.01363", "0.01439", "0.01502", "0.01565", "0.01641", "0.01717", "0.01793", "0.01868", "0.01944", "0.02045", "0.02146", "0.02272", "0.02399", "0.02512", "0.02651", "0.02878", "0.03106", "0.03358", "0.03762", "0.04166", "0.0505", "0.05428", "0.05984", "0.06565", "0.0707", "0.07448"],
+                    datasets: [{
+                        data: [198.9,
+                                397.9,
+                                596.8,
+                                795.8,
+                                994.7,
+                                1193.7,
+                                1392.6,
+                                1591.5,
+                                1790.5,
+                                1989.4,
+                                2188,
+                                2387,
+                                2586,
+                                2785,
+                                2984,
+                                3183,
+                                3382,
+                                3581,
+                                3779,
+                                3978,
+                                4177,
+                                4376,
+                                4575,
+                                4774,
+                                4973,
+                                5172,
+                                5371,
+                                5570,
+                                5769,
+                                5968,
+                                6167,
+                                6366,
+                                6565,
+                                6764,
+                                6963,
+                                7162,
+                                7360,
+                                7559,
+                                7758,
+                                7957,
+                                8156,
+                                8355,
+                                8554,
+                                8753,
+                                8952,
+                                9151,
+                                9051,
+                                9051,
+                                8654,
+                                8455,
+                                8156,
+                                7957,
+                                7659],
+                        backgroundColor: [
+                            'rgba(62, 139, 209, 0.5)']
+                    }]
+                }
+            });
+            document.getElementById("myChart").style.maxHeight = divHeight;
+        };
+    });
+</script>
+</html>

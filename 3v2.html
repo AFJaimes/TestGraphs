@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Comfortaa" rel="stylesheet">
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>   
+    <link href="css/Columnas.css" rel="stylesheet" />
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+</head>
+<body style="background-color:#d1ffe5;">
+    <div class="container" style="text-align:center;">
+        <h2>ENSAYO 3: DUREZA.</h2>
+        <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
+        <div class="row flex-row " style="background-color:white;">
+            <div class="col-md-6 col-sm-12 " id="divcanvas">
+                <div class="cnvgrp" id="container"></div>
+            </div>
+            <div class="col-md-6 col-sm-12 " style="overflow:hidden">
+                <img class="colimg" id="imgcol" style="width:100%; max-width:1000px; max-height:1000px;" src="imgs/dureza_aluminio.png" />
+            </div>
+        </div>
+
+        <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
+        <!--cambio graficas-->
+        <a href="#" id="grafica1" class="btn btn-lg btn-info">Aluminio 2011</a>
+        <a href="#" id="grafica2" class="btn btn-lg btn-info">Fundicion Gris A48</a>
+        <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
+
+        <div style="text-align:justify">
+            <p>
+                La <b>dureza </b>es la oposición que ofrecen los materiales a alteraciones como la penetración, la abrasión, el rayado, la cortadura, las deformaciones permanentes, entre otras. Por ejemplo: la madera puede rayarse con facilidad, esto significa que no tiene mucha dureza, mientras que el vidrio es mucho más difícil de rayar. En la actualidad la definición más extendida aparte de los minerales y cerámicas sería la resistencia a la deformación plástica localizada.
+            </p>
+            <p>En el ensayo de dureza Brinell el penetrador es una bola de acero extraduro de diámetro D, que se apoya sobre la probeta a estudiar; ejerciendo sobre la misma una fuerza P durante un tiempo t dado, aparece una huella de diámetro d sobre el metal, figura 2.14. La dureza Brinell viene definida por:</p>
+            <p style="text-align:center">
+                HB = P/S                
+            </p>
+            <p>
+                El ensayo se realiza en materiales:
+            </p>
+            <p>
+                Siendo S la superficie de la huella, casquete esférico. P se expresa en kg fuerza y S en mm2.<br /><br />
+            </p>
+        </div>
+        <div style="text-align:center;">
+            <a style="color:black;" href="home.html" class="btn btn-lg btn-info">Volver al inicio</a>
+            <button type="button" id="btnayuda" onclick='bootbox.alert("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at felis tempor, mattis mi in, congue turpis. Ut interdum tortor quam, efficitur lacinia elit accumsan non. Integer lobortis, mi et tincidunt sodales, quam ipsum sodales leo, ut malesuada quam quam a justo. Mauris tincidunt sapien tincidunt, tempus turpis eget, bibendum velit. Duis finibus feugiat neque, vel tristique elit ullamcorper non. Vestibulum dui sapien, tempus at posuere sed, luctus sed ipsum. Duis vitae iaculis dui, eget imperdiet ante. Integer posuere purus eget est suscipit finibus. Duis id rhoncus lorem. Cras scelerisque dolor ac ultricies commodo.<br//><br//>Suspendisse at felis mollis, tristique dolor non, sagittis urna. Integer dolor quam, vehicula facilisis nisi at, ultrices fermentum nisl. Ut laoreet, tellus sit amet imperdiet laoreet, nunc quam luctus turpis, eu faucibus nunc tellus dignissim velit. Curabitur ac consequat urna. Fusce venenatis malesuada sapien a hendrerit. Etiam ultricies neque vitae augue auctor, in mattis odio sodales. Praesent pretium erat est, et dictum arcu aliquet sed. Suspendisse potenti. Phasellus a tincidunt justo. Maecenas neque diam, consectetur sit amet gravida eget, suscipit sit amet neque. Fusce rhoncus ligula felis, eu interdum massa cursus vitae. Integer at justo eget sem tincidunt molestie a eu dui. In suscipit urna id elit viverra, quis tempus augue venenatis. Duis et arcu ullamcorper mauris dapibus fringilla non in tortor. Ut vel placerat nunc.</p>")' class="btn btn-lg btn-primary">
+                Ayuda
+            </button>
+            <br /><br />
+        </div>
+    </div>
+</body>
+<script>
+    $('#grafica1').click(function () {
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        Highcharts.chart('container', {
+
+            title: {
+                text: 'Gráfica de Frecuencia - Dureza'
+            },
+
+
+            yAxis: {
+                title: {
+                    text: 'Frecuencia'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: 'Dureza'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: 'Frecuencia vs Dureza',
+                data:[ 
+                [60,1],[62,1],[64,1],[68,1],[70,9],[74,15],[76,12],[78,9],[ 80,25],[ 84,16],[ 86,20],[ 88,16],[ 90,30],[ 94,17],
+                [96, 12], [98, 21], [100, 61], [104, 31], [106, 10], [108, 16], [110, 6], [112, 7], [114, 4], [116, 12], [120, 9], [124, 3], [128, 2], [130, 1], [134, 1], [138, 1], [140, 1], [144, 1]
+                ]
+            }]
+
+        });
+        document.getElementById("imgcol").src = "imgs/dureza_aluminio.png";
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+    });
+    $('#grafica2').click(function () {
+        // Run onload code.
+
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        Highcharts.chart('container', {
+
+            title: {
+                text: 'Gráfica de Frecuencia - Dureza'
+            },
+
+
+            yAxis: {
+                title: {
+                    text: 'Frecuencia'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: 'Dureza'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: 'Frecuencia vs Dureza',
+                data: [
+                [160, 1], [164, 1], [168, 1], [170, 1], [178, 1], [180, 1], [184, 1], [186, 1], [188, 4], [190, 14], [194, 10], [196, 7], [198, 6], [200, 16],
+                [204, 21], [206, 6], [208, 16], [210, 55], [212, 7],
+                [214, 9], [216, 14], [218, 1], [220, 17], [224, 10], [226,7], [228,6 ], [230,17 ], [232,1 ], [234,12 ], [236,9 ], [238,5 ], [240,14 ], [244, 3], [246,1 ], [248,1 ], [250, 1], [254, 1],
+                [256, 1], [260, 1], [270, 1]
+                ]
+            }]
+
+        });
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+
+        
+        document.getElementById("imgcol").src = "imgs/dureza_fundicion.png";
+    });
+
+    $(document).ready(function () {
+        var tmpImg = new Image();
+        tmpImg.src = $('#imgcol').attr('src');
+        tmpImg.onload = function () {
+            // Run onload code.
+            var divHeight = Math.round($('#imgcol').height()) - 2;
+            Highcharts.chart('container', {
+
+                title: {
+                    text: 'Gráfica de Frecuencia - Dureza'
+                },
+
+
+                yAxis: {
+                    title: {
+                        text: 'Frecuencia'
+                    }
+                },
+                xAxis: {
+                    title: {
+                        text: 'Dureza'
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle'
+                },
+                legend: {
+                    enabled: false
+                },
+
+
+                series: [{
+                    name: 'Frecuencia vs Dureza',
+                    data: [
+                    [60, 1], [62, 1], [64, 1], [68, 1], [70, 9], [74, 15], [76, 12], [78, 9], [80, 25], [84, 16], [86, 20], [88, 16], [90, 30], [94, 17],
+                    [96, 12], [98, 21], [100, 61], [104, 31], [106, 10], [108, 16], [110, 6], [112, 7], [114, 4], [116, 12], [120, 9], [124, 3], [128, 2], [130, 1], [134, 1], [138, 1], [140, 1], [144, 1]
+                    ]
+                }]
+
+            });
+            $('#divcanvas').style.height = divHeight;
+            document.getElementById("imgcol").src = "imgs/dureza_aluminio.png";
+            document.getElementById("myChart").style.maxHeight = divHeight;
+        };
+    });
+
+</script>
+</html>

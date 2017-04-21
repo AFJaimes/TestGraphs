@@ -25,10 +25,10 @@
         <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
         <div class="row flex-row " style="background-color:white;">
             <div class="col-md-6 col-sm-12 " id="divcanvas">
-                <div class="cnvgrp" id="container"></div>
+                <div class="cnvgrp" id="container"></div> 
             </div>
             <div class="col-md-6 col-sm-12 " style="overflow:hidden">
-                <img class="colimg" id="imgcol" style="width:100%; max-width:1000px; max-height:1000px;" src="https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif" />
+                <img class="colimg" id="imgcol" style="width:100%; max-width:1000px; max-height:1000px;" src="imgs/dureza_aluminio.png" />
             </div>
         </div>
 
@@ -71,7 +71,13 @@
                 text: 'Gráfica de Frecuencia - Dureza'
             },
 
-
+		plotOptions: {
+            series: {
+                animation: {
+                    duration: 8000,
+                }
+            }
+        },
             yAxis: {
                 title: {
                     text: 'Frecuencia'
@@ -101,7 +107,7 @@
             }]
 
         });
-        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("imgcol").src = "imgs/dureza_aluminio.png";
         document.getElementById("myChart").style.maxHeight = divHeight;
         $('.highcharts-container').height = divHeight;
         $('.highcharts-root').height = divHeight;
@@ -116,7 +122,13 @@
                 text: 'Gráfica de Frecuencia - Dureza'
             },
 
-
+plotOptions: {
+            series: {
+                animation: {
+                    duration: 8000,
+                }
+            }
+        },
             yAxis: {
                 title: {
                     text: 'Frecuencia'
@@ -152,7 +164,7 @@
         $('.highcharts-root').height = divHeight;
 
         
-        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("imgcol").src = "imgs/dureza_fundicion.png";
     });
 
     $(document).ready(function () {
@@ -186,7 +198,13 @@
                 legend: {
                     enabled: false
                 },
-
+plotOptions: {
+            series: {
+                animation: {
+                    duration: 8000,
+                }
+            }
+        },
 
                 series: [{
                     name: 'Frecuencia vs Dureza',
@@ -198,7 +216,7 @@
 
             });
             $('#divcanvas').style.height = divHeight;
-            document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+            document.getElementById("imgcol").src = "imgs/dureza_aluminio.png";
             document.getElementById("myChart").style.maxHeight = divHeight;
         };
     });

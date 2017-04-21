@@ -9,7 +9,8 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
     <link href="css/Columnas.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
@@ -24,12 +25,16 @@
         <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
         <div class="row flex-row " style="background-color:white;">
             <div class="col-md-6 col-sm-12 " id="divcanvas">
-                <canvas class="cnvgrp" id="myChart"></canvas>
+                <div class="cnvgrp" id="container"></div> 
             </div>
             <div class="col-md-6 col-sm-12 " style="overflow:hidden">
                 <img class="colimg" id="imgcol" style="width:100%; max-width:1000px; max-height:1000px;" src="https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif" />
             </div>
         </div>
+        <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
+		<a href="#" id="grafica1" class="btn btn-lg btn-info">Material: A41</a>
+		<a href="#" id="grafica2" class="btn btn-lg btn-info">Fundicion gris clase 40</a>
+        <a href="#" id="grafica3" class="btn btn-lg btn-info">Hormigon</a>
         <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
 
         <div style="text-align:justify">
@@ -60,106 +65,205 @@
     </div>
 </body>
 <script>
+$('#grafica1').click(function () {
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        Highcharts.chart('container', {
 
-    $(document).ready(function () {
+            title: {
+                text: 'Compresion A41'
+            },
+
+		plotOptions: {
+            series: {
+                animation: {
+                    duration: 8000,
+                }
+            }
+        },
+            yAxis: {
+                title: {
+                    text: '(Kg/cm^2)'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: 'ε 1(in/in)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: '(Kg/cm^2) vs ε 1(in/in)',
+                data:[ 
+                [0.001,197],[0.002,394],[0.003,592],[0.0035,789],[0.0045,986],[0.005,1184],[0.0055,1381],[0.006,1578],[0.0065,1776],[0.0075,1973],[0.008,2170],[0.0085,2368],[0.0095,2565],[0.0105,2762],[0.0115,2960],[0.0135,3157],[0.0175,3276],[0.02,3315],[0.033,3394],[0.0375,3552],[0.04,3670],[0.0405,3749],[0.0445,3868],[0.0475,3947],[0.0495,4065],[0.0515,4104],[0.054,4183],[0.0565,4262],[0.059,4341]
+                ]
+            }]
+
+        });
+        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+    });
+
+$('#grafica2').click(function () {
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        Highcharts.chart('container', {
+
+            title: {
+                text: 'Fundicion Gris clase 40'
+            },
+
+		plotOptions: {
+            series: {
+                animation: {
+                    duration: 8000,
+                }
+            }
+        },
+            yAxis: {
+                title: {
+                    text: '(Kg/cm^2)'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: 'ε 1(in/in)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: '(Kg/cm^2) vs ε 1(in/in)',
+                data:[ 
+                [0.0017,566929],[0.0032,537090],[0.0041,618468],[0.0047,708661],[0.0055,728908],[0.0064,768097],[0.0070,800370],[0.0082,805636],[0.0091,829652],[0.0099,813420],[0.011,816377],[0.012,789651],[0.013,821069],[0.014,822961],[0.016,850393],[0.017,845239],[0.018,828209],[0.0188,812598],[0.019,809023],[0.020,784978],[0.0211,772703],[0.0217,761304],[0.0229,742161],[0.0238,724683],[0.0246,716121],[0.0258,708082],[0.0270,693654],[0.0279,693397],[0.0288,680314],[0.0299,668166],[0.0305,646855],[0.0317,646299],[0.0329,646856],[0.0341,637120],[0.0352,627983],[0.0358,619391],[0.037,611297],[0.038,603659],[0.039,596440],[0.040,581848],[0.041,568364],[0.042,555867],[0.044,547472],[0.046,533428],[0.048,523319],[0.049,508445],[0.051,499823],[0.053,482164],[0.055,484070],[0.057,485939],[0.060,511082],[0.0611,497153],[0.0617,460567],[0.059,455515],[0.0611,450635],[0.066,442204],[0.067,435956],[0.068,429959],[0.070,419263],[0.072,409212],[0.073,408696],[0.075,390819],[0.0781,379764],[0.0787,367012],[0.082,352993],[0.085,334119],[0.089,312122],[0.093,278763],[0.099,8843],[0.107,8895],[0.120,8947]
+
+                ]
+            }]
+
+        });
+        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+    });
+	$('#grafica3').click(function () {
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        Highcharts.chart('container', {
+
+            title: {
+                text: 'Hormigón'
+            },
+
+		plotOptions: {
+            series: {
+                animation: {
+                    duration: 8000,
+                }
+            }
+        },
+            yAxis: {
+                title: {
+                    text: '(Kg/cm^2)'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: 'ε 1(in/in)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: '(Kg/cm^2) vs ε 1(in/in)',
+                data:[ 
+                [0.00003386,5.77],[0.0000677,11.54],[0.00011853,17.31],[0.00016,23.07],[0.00021,28.85],[0.000254,34.62],[0.00030,40.39],[0.00036,46.16],[0.00042,51.93],[0.00047,57.70],[0.00054,63.47],[0.00060,69.24],[0.00069,75.01],[0.00076,80.78],[0.00085,86.55],[0.00093,92.32],[0.00103,98.09],[0.00113,103.86],[0.00127,109.63],[0.00139,115.40],[0.00154,121.17],[0.0017,126.94],[0.0020,132.71],[0.0024,138.4899],[0.0030,144.26],[0.0033,145.93]
+                ]
+            }]
+
+        });
+        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+    });
+	
+	$(document).ready(function () {
         var tmpImg = new Image();
         tmpImg.src = $('#imgcol').attr('src');
         tmpImg.onload = function () {
             // Run onload code.
-            debugger;
-            $('#myChart').remove(); // this is my <canvas> element
-            $('#divcanvas').append("<canvas class='cnvgrp' id='myChart'></canvas>");
             var divHeight = Math.round($('#imgcol').height()) - 2;
-            var ctx = document.getElementById("myChart");
-            ctx.height = divHeight;
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                options: {
-                    maintainAspectRatio: false,
-                    title: {
-                        display: true,
-                        text: 'Grafica de Esfuerzo - Deformación'
-                    },
-                    scales: {
-                        yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Esfuerzo'
-                            }
-                        }],
-                        xAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Deformación'
-                            }
-                        }]
-                    }
-                },
-                data: {
-                    labels: ["0.00013", "0.00", "0.00114", "0.00141", "0.00202", "0.00252", "0.00303", "0.00353", "0.00404", "0.00442", "0.00492", "0.0053", "0.00568", "0.00566", "0.00568", "0.00694", "0.00732", "0.00783", "0.00821", "0.00884", "0.00934", "0.00997", "0.01048", "0.01098", "0.01149", "0.01212", "0.01326", "0.01363", "0.01439", "0.01502", "0.01565", "0.01641", "0.01717", "0.01793", "0.01868", "0.01944", "0.02045", "0.02146", "0.02272", "0.02399", "0.02512", "0.02651", "0.02878", "0.03106", "0.03358", "0.03762", "0.04166", "0.0505", "0.05428", "0.05984", "0.06565", "0.0707", "0.07448"],
-                    datasets: [{
-                        data: [198.9,
-                                397.9,
-                                596.8,
-                                795.8,
-                                994.7,
-                                1193.7,
-                                1392.6,
-                                1591.5,
-                                1790.5,
-                                1989.4,
-                                2188,
-                                2387,
-                                2586,
-                                2785,
-                                2984,
-                                3183,
-                                3382,
-                                3581,
-                                3779,
-                                3978,
-                                4177,
-                                4376,
-                                4575,
-                                4774,
-                                4973,
-                                5172,
-                                5371,
-                                5570,
-                                5769,
-                                5968,
-                                6167,
-                                6366,
-                                6565,
-                                6764,
-                                6963,
-                                7162,
-                                7360,
-                                7559,
-                                7758,
-                                7957,
-                                8156,
-                                8355,
-                                8554,
-                                8753,
-                                8952,
-                                9151,
-                                9051,
-                                9051,
-                                8654,
-                                8455,
-                                8156,
-                                7957,
-                                7659],
-                        backgroundColor: [
-                            'rgba(62, 139, 209, 0.5)']
-                    }]
+            Highcharts.chart('container', {
+
+            title: {
+                text: 'Compresion A41'
+            },
+
+		plotOptions: {
+            series: {
+                animation: {
+                    duration: 8000,
                 }
-            });
-            document.getElementById("myChart").style.maxHeight = divHeight;
+            }
+        },
+            yAxis: {
+                title: {
+                    text: '(Kg/cm^2)'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: 'ε 1(in/in)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: '(Kg/cm^2) vs ε 1(in/in)',
+                data:[ 
+                [0.001,197],[0.002,394],[0.003,592],[0.0035,789],[0.0045,986],[0.005,1184],[0.0055,1381],[0.006,1578],[0.0065,1776],[0.0075,1973],[0.008,2170],[0.0085,2368],[0.0095,2565],[0.0105,2762],[0.0115,2960],[0.0135,3157],[0.0175,3276],[0.02,3315],[0.033,3394],[0.0375,3552],[0.04,3670],[0.0405,3749],[0.0445,3868],[0.0475,3947],[0.0495,4065],[0.0515,4104],[0.054,4183],[0.0565,4262],[0.059,4341]
+                ]
+            }]
+
+        });
+        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
         };
     });
-
-
 </script>
 </html>

@@ -35,10 +35,9 @@
         </div>
         <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
         <!--cambio graficas-->
-            <a href="#" id="grafica1" class="btn btn-lg btn-info">material 1</a>
-            <a href="#" id="grafica2" class="btn btn-lg btn-info">material 2</a>
-            <a href="#" id="grafica3" class="btn btn-lg btn-info">material 3</a>
-            <a href="#" id="grafica4" class="btn btn-lg btn-info">material 4</a>
+            <a href="#" id="grafica1" class="btn btn-lg btn-info">ACERO AISI SAE 1045</a>
+            <a href="#" id="grafica2" class="btn btn-lg btn-info">ASTM A 48</a>
+            <a href="#" id="grafica3" class="btn btn-lg btn-info">ASTM A37</a>            
         <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
 
         <div style="text-align:justify">
@@ -66,473 +65,204 @@
     </div>
 </body>
 <script>
-    Highcharts.chart('container', {
+  $('#grafica1').click(function () {
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        Highcharts.chart('container', {
 
-        title: {
-            text: 'Solar Employment Growth by Sector, 2010-2016'
-        },
-
-        subtitle: {
-            text: 'Source: thesolarfoundation.com'
-        },
-
-        yAxis: {
             title: {
-                text: 'Number of Employees'
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
+                text: 'ACERO AISI SAE 1045'
+            },
 
-        plotOptions: {
+		plotOptions: {
             series: {
-                pointStart: 2010
+                animation: {
+                    duration: 8000,
+                }
             }
         },
-
-        series: [{
-            name: 'Installation',
-            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-        }, {
-            name: 'Manufacturing',
-            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-        }, {
-            name: 'Sales & Distribution',
-            data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-        }, {
-            name: 'Project Development',
-            data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-        }, {
-            name: 'Other',
-            data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-        }]
-
-    });
-
-
-
-    $('#grafica1').click(function () {
-        // Run onload code.
-        $('#myChart').remove(); // this is my <canvas> element
-        $('#divcanvas').append("<canvas class='cnvgrp' id='myChart'></canvas>");
-        var divHeight = Math.round($('#imgcol').height()) - 2;
-        var ctx = document.getElementById("myChart");
-        ctx.height = divHeight;
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            options: {
-                maintainAspectRatio: false,
+            yAxis: {
                 title: {
-                    display: true,
-                    text: 'Grafica de Esfuerzo - Deformación'
-                },
-                scales: {
-                    yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Esfuerzo'
-                        }
-                    }],
-                    xAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Deformación'
-                        }
-                    }]
+                    text: '(Kg/cm^2)'
                 }
             },
-            data: {
-                labels: ["0.00821", "0.00884", "0.00934", "0.00997", "0.01048", "0.01098", "0.01149", "0.01212", "0.01326", "0.01363", "0.01439", "0.01502", "0.01565", "0.01641", "0.01717", "0.01793", "0.01868", "0.01944", "0.02045", "0.02146", "0.02272", "0.02399", "0.02512", "0.02651", "0.02878", "0.03106", "0.03358", "0.03762", "0.04166", "0.0505", "0.05428", "0.05984", "0.06565", "0.0707", "0.07448"],
-                datasets: [{
-                    data: [198.9,
-                            397.9,
-                            596.8,
-                            795.8,
-                            994.7,
-                            1193.7,
-                            1392.6,
-                            1591.5,
-                            1790.5,
-                            1989.4,
-                            2188,
-                            2387,
-                            2586,
-                            2785,
-                            2984,
-                            3183,
-                            3382,
-                            3581,
-                            3779,
-                            3978,
-                            4177,
-                            4376,
-                            4575,
-                            4774,
-                            4973,
-                            8753,
-                            8952,
-                            9151,
-                            9051,
-                            9051,
-                            8654,
-                            8455,
-                            8156,
-                            7957,
-                            7659],
-                    backgroundColor: [
-                        'rgba(150, 100, 50, 0.5)']
-                }]
-            }
-        });
-        document.getElementById("myChart").style.maxHeight = divHeight;
-    }); 
-    $('#grafica2').click(function () {
-        // Run onload code.
-        $('#myChart').remove(); // this is my <canvas> element
-        $('#divcanvas').append("<canvas class='cnvgrp' id='myChart'></canvas>");
-        var divHeight = Math.round($('#imgcol').height()) - 2;
-        var ctx = document.getElementById("myChart");
-        ctx.height = divHeight;
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            options: {
-                maintainAspectRatio: false,
+            xAxis: {
                 title: {
-                    display: true,
-                    text: 'Grafica de Esfuerzo - Deformación'
-                },
-                scales: {
-                    yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Esfuerzo'
-                        }
-                    }],
-                    xAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Deformación'
-                        }
-                    }]
+                    text: 'δ1 (mm)'
                 }
             },
-            data: {
-                labels: ["0.00492", "0.0053", "0.00568", "0.00566", "0.00568", "0.00694", "0.00732", "0.00783", "0.00821", "0.00884", "0.00934", "0.00997", "0.01048", "0.01098", "0.01149", "0.01212", "0.01326", "0.01363", "0.01439", "0.01502", "0.01565", "0.01641", "0.01717", "0.01793", "0.01868", "0.01944", "0.02045", "0.02146", "0.02272", "0.02399", "0.02512", "0.02651", "0.02878", "0.03106", "0.03358", "0.03762", "0.04166", "0.0505", "0.05428", "0.05984", "0.06565", "0.0707", "0.07448"],
-                datasets: [{
-                    data: [198.9,
-                            397.9,
-                            596.8,
-                            795.8,
-                            994.7,
-                            1193.7,
-                            1392.6,
-                            1591.5,
-                            1790.5,
-                            1989.4,
-                            2188,
-                            2387,
-                            2586,
-                            2785,
-                            2984,
-                            3183,
-                            3382,
-                            3581,
-                            3779,
-                            3978,
-                            4177,
-                            4376,
-                            4575,
-                            4774,
-                            4973,
-                            7162,
-                            7360,
-                            7559,
-                            7758,
-                            7957,
-                            8156,
-                            8355,
-                            8554,
-                            8753,
-                            8952,
-                            9151,
-                            9051,
-                            9051,
-                            8654,
-                            8455,
-                            8156,
-                            7957,
-                            7659],
-                    backgroundColor: [
-                        'rgba(62, 100, 50, 0.5)']
-                }]
-            }
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: 'δ1 (mm) vs ε (Kg/cm^2)',
+                data:[ 
+                [0.012,198],[0.050,397],[0.114,596],[0.152,795],[0.203,994],[0.254,1193],[0.304,1392],[0.355,1591],[0.406,1790],[0.444,1989],[0.495,2188],[0.533,2387],[0.571,2586],[0.568,2785],[0.571,2984],[0.698,3183],[0.736,3382],[0.787,3580],[0.825,3779],[0.889,3978],[0.939,4177],[1.003,4376],[1.054,4575],[1.104,4774],[1.155,4973],[1.219,5172],[1.333,5371],[1.371,5570],[1.447,5769],[1.511,5968],[1.574,6167],[1.651,6366],[1.727,6565],[1.803,6764],[1.879,6963],[1.955,7161],[2.057,7360],[2.159,7559],[2.286,7758],[2.413,7957],[2.5273,8156],[2.667,8355],[2.895,8554],[3.124,8753],[3.378,9151],[4.191,9051],[5.080,9051],[5.461,8654],[6.019,8455],[6.604,8156],[7.112,7957],[7.493,7659]
+                ]
+            }]
+
         });
+        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
         document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
     });
-    $('#grafica3').click(function () {
-        // Run onload code.
-        $('#myChart').remove(); // this is my <canvas> element
-        $('#divcanvas').append("<canvas class='cnvgrp' id='myChart'></canvas>");
+
+$('#grafica2').click(function () {
         var divHeight = Math.round($('#imgcol').height()) - 2;
-        var ctx = document.getElementById("myChart");
-        ctx.height = divHeight;
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            options: {
-                maintainAspectRatio: false,
+        Highcharts.chart('container', {
+
+            title: {
+                text: 'ASTM A 48'
+            },
+
+		plotOptions: {
+            series: {
+                animation: {
+                    duration: 8000,
+                }
+            }
+        },
+            yAxis: {
                 title: {
-                    display: true,
-                    text: 'Grafica de Esfuerzo - Deformación'
-                },
-                scales: {
-                    yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Esfuerzo'
-                        }
-                    }],
-                    xAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Deformación'
-                        }
-                    }]
+                    text: '(Kg/cm^2)'
                 }
             },
-            data: {
-                labels: ["0.00492", "0.0053", "0.00568", "0.00566", "0.00568", "0.00694", "0.00732", "0.00783", "0.00821", "0.00884", "0.00934", "0.00997", "0.01048", "0.01098", "0.01149", "0.01212", "0.01326", "0.01363", "0.01439", "0.01502", "0.01565", "0.01641", "0.01717", "0.01793", "0.01868", "0.01944", "0.02045", "0.02146", "0.02272", "0.02399", "0.02512", "0.02651", "0.02878", "0.03106", "0.03358", "0.03762", "0.04166", "0.0505", "0.05428", "0.05984", "0.06565", "0.0707", "0.07448"],
-                datasets: [{
-                    data: [198.9,
-                            397.9,
-                            596.8,
-                            795.8,
-                            994.7,
-                            1193.7,
-                            1392.6,
-                            1591.5,
-                            1790.5,
-                            1989.4,
-                            2188,
-                            2387,
-                            2586,
-                            2785,
-                            2984,
-                            3183,
-                            3382,
-                            3581,
-                            3779,
-                            3978,
-                            4177,
-                            4376,
-                            4575,
-                            4774,
-                            4973,
-                            7162,
-                            7360,
-                            7559,
-                            7758,
-                            7957,
-                            8156,
-                            8355,
-                            8554,
-                            8753,
-                            8952,
-                            9151,
-                            9051,
-                            9051,
-                            8654,
-                            8455,
-                            8156,
-                            7957,
-                            7659],
-                    backgroundColor: [
-                        'rgba(0, 100, 130, 0.5)']
-                }]
-            }
-        });
-        document.getElementById("myChart").style.maxHeight = divHeight;
-    });
-    $('#grafica4').click(function () {
-        // Run onload code.
-        $('#myChart').remove(); // this is my <canvas> element
-        $('#divcanvas').append("<canvas class='cnvgrp' id='myChart'></canvas>");
-        var divHeight = Math.round($('#imgcol').height()) - 2;
-        var ctx = document.getElementById("myChart");
-        ctx.height = divHeight;
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            options: {
-                maintainAspectRatio: false,
+            xAxis: {
                 title: {
-                    display: true,
-                    text: 'Grafica de Esfuerzo - Deformación'
-                },
-                scales: {
-                    yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Esfuerzo'
-                        }
-                    }],
-                    xAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Deformación'
-                        }
-                    }]
+                    text: 'δ1 (mm)'
                 }
             },
-            data: {
-                labels: ["0.00492", "0.0053", "0.00568", "0.00566", "0.00568", "0.00694", "0.00732", "0.00783", "0.00821", "0.00884", "0.00934", "0.00997", "0.01048", "0.01098", "0.01149", "0.01212", "0.01326", "0.01363", "0.01439", "0.01502", "0.01565", "0.01641", "0.01717", "0.01793", "0.01868", "0.01944", "0.02045", "0.02146", "0.02272", "0.02399", "0.02512", "0.02651", "0.02878", "0.03106", "0.03358", "0.03762", "0.04166", "0.0505", "0.05428", "0.05984", "0.06565", "0.0707", "0.07448"],
-                datasets: [{
-                    data: [198.9,
-                            397.9,
-                            596.8,
-                            795.8,
-                            994.7,
-                            1193.7,
-                            1392.6,
-                            1591.5,
-                            1790.5,
-                            1989.4,
-                            2188,
-                            2387,
-                            2586,
-                            2785,
-                            2984,
-                            3183,
-                            3382,
-                            3581,
-                            3779,
-                            3978,
-                            4177,
-                            4376,
-                            4575,
-                            4774,
-                            4973,
-                            7162,
-                            7360,
-                            7559,
-                            7758,
-                            7957,
-                            8156,
-                            8355,
-                            8554,
-                            8753,
-                            8952,
-                            9151,
-                            9051,
-                            9051,
-                            8654,
-                            8455,
-                            8156,
-                            7957,
-                            7659],
-                    backgroundColor: [
-                        'rgba(62, 0, 50, 0.5)']
-                }]
-            }
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: '(Kg/cm^2) vs δ1 (mm)',
+                data:[ 
+                [0.762,199],[0.990,299],[1.041,398],[1.066,498],[1.117,598],[1.168,698],[1.219,797],[1.27,897],[1.29,997],[1.37,1096],[1.39,1196],[1.42,1296],[1.47,1396],[1.52,1495],[1.62,1595],[1.65,1695],[1.67,1794],[1.72,1894],[1.75,1994],[1.80,2094],[1.85,2193],[1.93,2293],[1.98,2393],[2.05,2493],[2.13,2592],[2.20,2692],[2.28,2792],[2.36,2891],[2.413,2991],[2.54,3091],[2.69,3191]
+
+                ]
+            }]
+
         });
+        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
         document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
     });
-    $(document).ready(function () {
+	$('#grafica3').click(function () {
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        Highcharts.chart('container', {
+
+            title: {
+                text: 'ASTM A37'
+            },
+
+		plotOptions: {
+            series: {
+                animation: {
+                    duration: 8000,
+                }
+            }
+        },
+            yAxis: {
+                title: {
+                    text: '(Kg/cm^2)'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: 'δ1 (mm)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: '(Kg/cm^2) vs δ1 (mm)',
+                data:[ 
+                [0.254,248],[1.041,497],[1.143,746],[1.244,994],[1.371,1243],[1.498,1492],[1.600,1740],[1.651,1989],[1.778,2238],[1.955,2486],[2.057,2586],[2.184,2536],[2.362,2636],[2.768,2586],[2.895,2685],[2.997,2536],[3.20,3.2586],[3.40,2586],[3.53,2636],[3.65,2685],[3.96,2586],[4.08,2685],[4.21,2586],[4.39,2586],[4.57,2636],[4.77,2586],[4.87,2660],[4.97,2735],[5.05,2785],[5.10,2834],[5.18,2884],[5.25,2934],[5.43,2984],[5.66,3033],[5.96,3083],[6.09,3133],[6.324,3183],[6.604,3232],[6.95,3282],[7.18,3332],[7.54,3382],[7.97,3431],[8.382,3481],[8.763,3531],[9.652,3580],[10.16,3630],[10.61,3680],[11.17,3730],[11.86,3779],[12.85,3829],[13.97,3879],[15.06,3929],[15.49,3978],[16.51,4028],[17.526,4078],[18.26,4128],[19.02,4177],[20.16,4227],[22.60,4202],[23.62,4078],[26.36,4078],[27.91,3730],[30.07,3481],[31.75,3232]
+                ]
+            }]
+
+        });
+        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+    });
+	
+	$(document).ready(function () {
         var tmpImg = new Image();
         tmpImg.src = $('#imgcol').attr('src');
         tmpImg.onload = function () {
             // Run onload code.
-            $('#myChart').remove(); // this is my <canvas> element
-            $('#divcanvas').append("<canvas class='cnvgrp' id='myChart'></canvas>");
             var divHeight = Math.round($('#imgcol').height()) - 2;
-            var ctx = document.getElementById("myChart");
-            ctx.height = divHeight;
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                options: {
-                    maintainAspectRatio: false,
-                    title: {
-                        display: true,
-                        text: 'Grafica de Esfuerzo - Deformación'
-                    },
-                    scales: {
-                        yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Esfuerzo'
-                            }
-                        }],
-                        xAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Deformación'
-                            }
-                        }]
-                    }
-                },
-                data: {
-                    labels: ["0.00013", "0.00", "0.00114", "0.00141", "0.00202", "0.00252", "0.00303", "0.00353", "0.00404", "0.00442", "0.00492", "0.0053", "0.00568", "0.00566", "0.00568", "0.00694", "0.00732", "0.00783", "0.00821", "0.00884", "0.00934", "0.00997", "0.01048", "0.01098", "0.01149", "0.01212", "0.01326", "0.01363", "0.01439", "0.01502", "0.01565", "0.01641", "0.01717", "0.01793", "0.01868", "0.01944", "0.02045", "0.02146", "0.02272", "0.02399", "0.02512", "0.02651", "0.02878", "0.03106", "0.03358", "0.03762", "0.04166", "0.0505", "0.05428", "0.05984", "0.06565", "0.0707", "0.07448"],
-                    datasets: [{
-                        data: [198.9,
-                                397.9,
-                                596.8,
-                                795.8,
-                                994.7,
-                                1193.7,
-                                1392.6,
-                                1591.5,
-                                1790.5,
-                                1989.4,
-                                2188,
-                                2387,
-                                2586,
-                                2785,
-                                2984,
-                                3183,
-                                3382,
-                                3581,
-                                3779,
-                                3978,
-                                4177,
-                                4376,
-                                4575,
-                                4774,
-                                4973,
-                                5172,
-                                5371,
-                                5570,
-                                5769,
-                                5968,
-                                6167,
-                                6366,
-                                6565,
-                                6764,
-                                6963,
-                                7162,
-                                7360,
-                                7559,
-                                7758,
-                                7957,
-                                8156,
-                                8355,
-                                8554,
-                                8753,
-                                8952,
-                                9151,
-                                9051,
-                                9051,
-                                8654,
-                                8455,
-                                8156,
-                                7957,
-                                7659],
-                        backgroundColor: [
-                            'rgba(62, 139, 209, 0.5)']
-                    }]
+            Highcharts.chart('container', {
+
+            title: {
+                text: 'ACERO AISI SAE 1045'
+            },
+
+		plotOptions: {
+            series: {
+                animation: {
+                    duration: 8000,
                 }
-            });
-            document.getElementById("myChart").style.maxHeight = divHeight;
+            }
+        },
+            yAxis: {
+                title: {
+                    text: '(Kg/cm^2)'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: 'ε 1(in/in)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: '(Kg/cm^2) vs ε 1(in/in)',
+                data:[ 
+                [0.012,198],[0.050,397],[0.114,596],[0.152,795],[0.203,994],[0.254,1193],[0.304,1392],[0.355,1591],[0.406,1790],[0.444,1989],[0.495,2188],[0.533,2387],[0.571,2586],[0.568,2785],[0.571,2984],[0.698,3183],[0.736,3382],[0.787,3580],[0.825,3779],[0.889,3978],[0.939,4177],[1.003,4376],[1.054,4575],[1.104,4774],[1.155,4973],[1.219,5172],[1.333,5371],[1.371,5570],[1.447,5769],[1.511,5968],[1.574,6167],[1.651,6366],[1.727,6565],[1.803,6764],[1.879,6963],[1.955,7161],[2.057,7360],[2.159,7559],[2.286,7758],[2.413,7957],[2.5273,8156],[2.667,8355],[2.895,8554],[3.124,8753],[3.378,9151],[4.191,9051],[5.080,9051],[5.461,8654],[6.019,8455],[6.604,8156],[7.112,7957],[7.493,7659]
+                ]
+            }]
+
+        });
+        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
         };
     });
 </script>

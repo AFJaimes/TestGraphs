@@ -27,8 +27,11 @@
             <div class="col-md-6 col-sm-12 " id="divcanvas">
                 <div class="cnvgrp" id="container"></div> 
             </div>
-            <div class="col-md-6 col-sm-12 " style="overflow:hidden">
-                <img class="colimg" id="imgcol" style="width:100%; max-width:1000px; max-height:1000px;" src="https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif" />
+            <div  style="overflow:hidden">
+				<video  id="imgcol" class="colimg " style="width:100%; max-width:1000px; max-height:1000px;" autoplay>
+				  <source src="imgs/tension.mp4" type="video/mp4">			  
+				  Your browser does not support HTML5 video.
+				</video>					
             </div>
         </div>
         <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
@@ -76,7 +79,7 @@ $('#grafica1').click(function () {
 		plotOptions: {
             series: {
                 animation: {
-                    duration: 8000,
+                    duration: 6000,
                 }
             }
         },
@@ -108,7 +111,8 @@ $('#grafica1').click(function () {
             }]
 
         });
-        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("imgcol").src = "imgs/tension.mp4";
+		document.getElementById("imgcol").play();
         document.getElementById("myChart").style.maxHeight = divHeight;
         $('.highcharts-container').height = divHeight;
         $('.highcharts-root').height = divHeight;
@@ -125,7 +129,7 @@ $('#grafica2').click(function () {
 		plotOptions: {
             series: {
                 animation: {
-                    duration: 8000,
+                    duration: 6000,
                 }
             }
         },
@@ -158,7 +162,7 @@ $('#grafica2').click(function () {
             }]
 
         });
-        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("imgcol").src = "imgs/tension.mp4";
         document.getElementById("myChart").style.maxHeight = divHeight;
         $('.highcharts-container').height = divHeight;
         $('.highcharts-root').height = divHeight;
@@ -174,7 +178,7 @@ $('#grafica2').click(function () {
 		plotOptions: {
             series: {
                 animation: {
-                    duration: 8000,
+                    duration: 6000,
                 }
             }
         },
@@ -206,19 +210,16 @@ $('#grafica2').click(function () {
             }]
 
         });
-        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("imgcol").src = "imgs/tension.mp4";
+		document.getElementById("imgcol").play();
         document.getElementById("myChart").style.maxHeight = divHeight;
         $('.highcharts-container').height = divHeight;
         $('.highcharts-root').height = divHeight;
     });
 	
 	$(document).ready(function () {
-        var tmpImg = new Image();
-        tmpImg.src = $('#imgcol').attr('src');
-        tmpImg.onload = function () {
-            // Run onload code.
-            var divHeight = Math.round($('#imgcol').height()) - 2;
-            Highcharts.chart('container', {
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        Highcharts.chart('container', {
 
             title: {
                 text: 'Compresion A41'
@@ -227,7 +228,7 @@ $('#grafica2').click(function () {
 		plotOptions: {
             series: {
                 animation: {
-                    duration: 8000,
+                    duration: 6000,
                 }
             }
         },
@@ -259,11 +260,11 @@ $('#grafica2').click(function () {
             }]
 
         });
-        document.getElementById("imgcol").src = "https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif";
+        document.getElementById("imgcol").src = "imgs/tension.mp4";
+		document.getElementById("imgcol").play();
         document.getElementById("myChart").style.maxHeight = divHeight;
         $('.highcharts-container').height = divHeight;
         $('.highcharts-root').height = divHeight;
-        };
     });
 </script>
 </html>

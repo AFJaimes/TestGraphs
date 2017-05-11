@@ -28,7 +28,10 @@
                 <div class="cnvgrp" id="container"></div> 
             </div>
             <div class="col-md-6 col-sm-12 " style="overflow:hidden">
-                <img class="colimg" id="imgcol" style="width:100%; max-width:1000px; max-height:1000px;" src="imgs/dureza_aluminio.png" />
+                <video  id="imgcol" class="colimg " style="width:100%; max-width:1000px; max-height:1000px;" autoplay>
+				  <source src="imgs/tension.mp4" type="video/mp4">			  
+				  Your browser does not support HTML5 video.
+				</video>	
             </div>
         </div>
 
@@ -74,7 +77,7 @@
 		plotOptions: {
             series: {
                 animation: {
-                    duration: 8000,
+                    duration: 4000,
                 }
             }
         },
@@ -107,7 +110,8 @@
             }]
 
         });
-        document.getElementById("imgcol").src = "imgs/dureza_aluminio.png";
+        document.getElementById("imgcol").src = "imgs/dureza.mp4";
+		document.getElementById("imgcol").play();
         document.getElementById("myChart").style.maxHeight = divHeight;
         $('.highcharts-container').height = divHeight;
         $('.highcharts-root').height = divHeight;
@@ -125,7 +129,7 @@
 plotOptions: {
             series: {
                 animation: {
-                    duration: 8000,
+                    duration: 4000,
                 }
             }
         },
@@ -160,18 +164,15 @@ plotOptions: {
             }]
 
         });
+        document.getElementById("imgcol").src = "imgs/dureza.mp4";
+		document.getElementById("imgcol").play();
+        document.getElementById("myChart").style.maxHeight = divHeight;
         $('.highcharts-container').height = divHeight;
         $('.highcharts-root').height = divHeight;
-
-        
-        document.getElementById("imgcol").src = "imgs/dureza_fundicion.png";
     });
 
     $(document).ready(function () {
-        var tmpImg = new Image();
-        tmpImg.src = $('#imgcol').attr('src');
-        tmpImg.onload = function () {
-            // Run onload code.
+        
             var divHeight = Math.round($('#imgcol').height()) - 2;
             Highcharts.chart('container', {
 
@@ -201,7 +202,7 @@ plotOptions: {
 plotOptions: {
             series: {
                 animation: {
-                    duration: 8000,
+                    duration: 4000,
                 }
             }
         },
@@ -215,10 +216,12 @@ plotOptions: {
                 }]
 
             });
-            $('#divcanvas').style.height = divHeight;
-            document.getElementById("imgcol").src = "imgs/dureza_aluminio.png";
-            document.getElementById("myChart").style.maxHeight = divHeight;
-        };
+            document.getElementById("imgcol").src = "imgs/dureza.mp4";
+		document.getElementById("imgcol").play();
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+        
     });
 
 </script>

@@ -35,6 +35,7 @@
         <!--cambio graficas-->
         <a href="#" id="grafica1" class="btn btn-lg btn-info">Fundicion gris (fragil)</a>
         <a href="#" id="grafica2" class="btn btn-lg btn-info">Acero estructural A604</a>
+		<a href="#" id="grafica3" class="btn btn-lg btn-info">Polimero</a>
         <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
 
         <div style="text-align:justify">
@@ -52,6 +53,7 @@
     </div>
 </body>
 <script>
+
 $('#grafica1').click(function () {
         var divHeight = Math.round($('#imgcol').height()) - 2;
         Highcharts.chart('container', {
@@ -151,7 +153,57 @@ $('#grafica1').click(function () {
         
         document.getElementById("imgcol").src = "imgs/dureza_fundicion.png";
     });
+       $('#grafica3').click(function () {
+        // Run onload code.
 
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        Highcharts.chart('container', {
+
+           title: {
+                text: 'Gráfica de Deformación vs Carga (Kn)'
+            },
+
+		plotOptions: {
+            series: {
+                animation: {
+                    duration: 8000,
+                }
+            }
+        },
+            yAxis: {
+                title: {
+                    text: 'Carga (Kn)'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: 'Deformación'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: 'Deformación vs Carga (Kn)',
+                data:[ 
+                [0.5,0.03],[1,0.09],[1.5,0.13],[2,0.17],[2.5,0.18],[3,0.195],[4,0.24],[4.5,0.27],[5,0.29],[5.5,0.31],[6,0.34],[6.5,0.365],[7,0.385],[7.5,0.415],[8,0.44],[8.5,0.455],[8.6,0.46],[8.7,0.47],[8.8,0.475],[9,0]
+                ]
+            }]
+
+        });
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+
+        
+        document.getElementById("imgcol").src = "imgs/dureza_fundicion.png";
+    });
     $(document).ready(function () {
         var tmpImg = new Image();
         tmpImg.src = $('#imgcol').attr('src');

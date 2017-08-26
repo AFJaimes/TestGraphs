@@ -39,6 +39,7 @@
 		<a href="#" id="grafica1" class="btn btn-lg btn-info">Material: A41</a>
 		<a href="#" id="grafica2" class="btn btn-lg btn-info">Fundicion gris clase 40</a>
         <a href="#" id="grafica3" class="btn btn-lg btn-info">Hormigon</a>
+		<a href="#" id="grafica4" class="btn btn-lg btn-info">AI2 O3</a>
         <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
 
         <div style="text-align:justify">
@@ -217,7 +218,55 @@ $('#grafica2').click(function () {
         $('.highcharts-container').height = divHeight;
         $('.highcharts-root').height = divHeight;
     });
-	
+	$('#grafica4').click(function () {
+        var divHeight = Math.round($('#imgcol').height()) - 2;
+        Highcharts.chart('container', {
+
+            title: {
+                text: 'Hormigón'
+            },
+
+		plotOptions: {
+            series: {
+                animation: {
+                    duration: 7000,
+                }
+            }
+        },
+            yAxis: {
+                title: {
+                    text: '(Kg/cm^2)'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: 'ε 1(in/in)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: '(Kg/cm^2) vs ε 1(in/in)',
+                data:[ 
+                [0,0],[0.14,15],[0.85,27.5]
+                ]
+            }]
+
+        });
+        document.getElementById("imgcol").src = "imgs/compresion.mp4";
+		document.getElementById("imgcol").play();
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+    });
 	$(document).ready(function () {
         var divHeight = Math.round($('#imgcol').height()) - 2;
         Highcharts.chart('container', {

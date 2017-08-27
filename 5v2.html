@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Comfortaa" rel="stylesheet">
+    <meta charset="utf-8" />
+    <link href="css/Columnas.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    
+
+</head>
+<body style="background-color:#ffd1d1;">
+    <div class="container" style="text-align:center;">
+        <h2>ENSAYO 5: IMPACTO.</h2>
+        <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
+        <div class="row flex-row " style="background-color:white;">
+            <div class="col-md-6 col-sm-12 " style="overflow:hidden">
+                <img class="colimg" id="imgcol" style="width:100%; max-width:1000px; max-height:1000px;" src="imgs/impacto.png" />
+            </div>
+            <div class="col-md-6 col-sm-12 " style="overflow:hidden">
+                <img class="colimg" id="imgcol" style="width:100%; max-width:1000px; max-height:1000px;" src="https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif" />
+            </div>
+        </div>
+		<hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
+        <!--cambio graficas-->
+        <a href="#" id="grafica1" class="btn btn-lg btn-info">Fundicion gris (fragil)</a>        
+        <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
+
+        <div style="text-align:justify">
+            <p>Según el método Charpy existen dos tipos de prueba de impacto:</p>
+			<p>•	Prueba de impacto con flexión<br />
+			•	Prueba de impacto con flexión y muesca</p>
+			<p>Ambas pruebas pueden realizarse con instrumentos o sin ellos, es decir, con una computadora que mide los diferentes parámetros implicados en la prueba.</p>
+			<p>Otras pruebas de impacto no incluidas en Charpy incluyen</p>
+			<p>•	Prueba a la caída<br />
+			•	Pruebas de impacto a alta velocidad</p>
+			<p>La tenacidad al impacto se mide en kJ/m2 (kilojulio (unidad) por metro cuadrado).</p>
+			<p>Debido a las características termoplásticas de los polímeros, las pruebas de impacto requieren cierta velocidad en su actuación, velocidades lentas producen más bien movimientos de deformación plástica o creep, permitiendo a los segmentos de las macromoléculas la relajación de esfuerzos. Las velocidades para impacto incluyen el rango de 10-1 - 100 s-1.</p>
+
+
+			<p><b>Fractura frágil</b> </p>
+
+			<p>Los factores que promueven una fractura frágil de polímero incluyen:</p>
+			<p>•	Bajas temperaturas<br />
+			•	Estados de concentración de estrés multiaxiales<br />
+			•	Tensiones residuales<br />
+			•	Agujeros y muescas<br />
+			•	Esquinas y rajaduras<br />
+			•	Altas tasas de estiramiento o deformación</p>
+			<p>Algunos de estos factores que propician la ruptura frágil pueden ser simulados al fabricar una probeta con muescas o aplicando la prueba a bajas temperaturas.
+			<p>Algunos factores del material afectan el comportamiento de fractura al impacto como son:
+			<p>•	Morfología del material<br />
+			•	Orientación de las cadenas poliméricas en la muestra<br />
+			•	Grado de cristalinidad<br />
+			•	Tamaño de las esferulitas</p>
+			<p>La orientación de las cadenas puede influenciar un mejor desempeño en pruebas de impacto en polímeros amorfos, sin embargo, en polímeros semicristalinos, una alta orientación puede resultar en una fractura más frágil.</p>
+			<p>Experimentación</p>
+			<p>Los experimentos de impacto de acuerdo con Charpy consisten en probetas con o sin muesca sometidos a una flexión basada en tres puntos.</p>
+			<p>Un estándar para esta prueba es el ISO 179-1 (2000), en el cual se define la geometría de la muestra o probeta.</p>
+
+							
+				<br /><br />
+            </p>
+        </div>
+        <div style="text-align:center;">
+            <a style="color:black;" href="home.html" class="btn btn-lg btn-info">Volver al inicio</a>
+            <button type="button" id="btnayuda" onclick='bootbox.alert("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at felis tempor, mattis mi in, congue turpis. Ut interdum tortor quam, efficitur lacinia elit accumsan non. Integer lobortis, mi et tincidunt sodales, quam ipsum sodales leo, ut malesuada quam quam a justo. Mauris tincidunt sapien tincidunt, tempus turpis eget, bibendum velit. Duis finibus feugiat neque, vel tristique elit ullamcorper non. Vestibulum dui sapien, tempus at posuere sed, luctus sed ipsum. Duis vitae iaculis dui, eget imperdiet ante. Integer posuere purus eget est suscipit finibus. Duis id rhoncus lorem. Cras scelerisque dolor ac ultricies commodo.<br//><br//>Suspendisse at felis mollis, tristique dolor non, sagittis urna. Integer dolor quam, vehicula facilisis nisi at, ultrices fermentum nisl. Ut laoreet, tellus sit amet imperdiet laoreet, nunc quam luctus turpis, eu faucibus nunc tellus dignissim velit. Curabitur ac consequat urna. Fusce venenatis malesuada sapien a hendrerit. Etiam ultricies neque vitae augue auctor, in mattis odio sodales. Praesent pretium erat est, et dictum arcu aliquet sed. Suspendisse potenti. Phasellus a tincidunt justo. Maecenas neque diam, consectetur sit amet gravida eget, suscipit sit amet neque. Fusce rhoncus ligula felis, eu interdum massa cursus vitae. Integer at justo eget sem tincidunt molestie a eu dui. In suscipit urna id elit viverra, quis tempus augue venenatis. Duis et arcu ullamcorper mauris dapibus fringilla non in tortor. Ut vel placerat nunc.</p>")' class="btn btn-lg btn-primary">
+                Ayuda
+            </button>
+            <br /><br />
+        </div>
+    </div>
+</body>
+
+</html>

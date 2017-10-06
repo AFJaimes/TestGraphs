@@ -1,6 +1,9 @@
 ﻿.bordes {
     border:1px solid black;
 }
+html {
+    height: 100%;
+}
 .container {
     background-color:white;
     border-left:1px solid gray;
@@ -9,9 +12,12 @@
 }
 body {
         font-family: 'Cinzel', serif !important;
-        background-image:url('../imgs/UIS.png');
-        background-repeat:repeat; 
+        background-image:url('../imgs/UIS-2.png');
+		background-size: 100% 100%;
+        background-repeat:no-repeat; 
+		background-attachment: fixed;
       }
+	  
 p {
     font-family: 'Comfortaa', cursive !important;
     font-size:1.1em;
@@ -19,4 +25,26 @@ p {
 .btn
 {
     margin-bottom:5px !important;
+}
+
+.btn-home
+{
+    width:150px;
+	margin:5px;
+}
+.btn-title
+{
+	width:350px;
+	margin:10px;
+}
+.bghome
+{
+background-image:url('../imgs/UIS.png');
+		background-size: 100% 100%;
+        background-repeat:no-repeat; 
+}
+
+.fonthome{
+	font-size:40px;
+	color:white;   
 }

@@ -23,17 +23,23 @@
     <div class="container" style="text-align:center;">
         <img class ="btn-title" src="imgs/ensayo_impacto.png">
         <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
-        <div class="row flex-row " style="background-color:white;">
-            <div class="col-md-6 col-sm-12 " style="overflow:hidden">
-                <img class="colimg" id="imgcol" style="width:100%; max-width:1000px; max-height:1000px;" src="imgs/impacto.png" />
+        <div class="row flex-row " style="background-color:white;">            
+			<div class="col-md-2 col-sm-12 " style="overflow:hidden">
+			</div>
+            <div class="col-md-8 col-sm-12 " style="overflow:hidden">
+				<video  id="imgcol" class="colimg " style="width:100%; max-width:1000px; max-height:1000px;" autoplay>
+				  <source src="imgs/impactov1.mp4" type="video/mp4">			  
+				  Your browser does not support HTML5 video.
+				</video>					
             </div>
-            <div class="col-md-6 col-sm-12 " style="overflow:hidden">
-                <img class="colimg" id="imgcol" style="width:100%; max-width:1000px; max-height:1000px;" src="https://media.giphy.com/media/26ufe34jLiGEOqyM8/giphy.gif" />
-            </div>
+			<div class="col-md-2 col-sm-12 " style="overflow:hidden">
+			</div>
         </div>
 		<hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
         <!--cambio graficas-->
-        <a href="#" id="grafica1" class="btn btn-lg btn-info">Fundicion gris (fragil)</a>        
+        <a href="#" id="grafica1" class="btn btn-lg btn-info">A37</a>       		
+        <a href="#" id="grafica2" class="btn btn-lg btn-info">FUNCICIÓN</a>
+		<a href="#" id="grafica3" class="btn btn-lg btn-info">1020</a>
         <hr style="display: block; height: 1px;    border: 0;    border-top: 1px solid black;    margin: 1em 0;    padding: 0; " />
 
         <div style="text-align:justify">
@@ -81,5 +87,39 @@
         </div>
     </div>
 </body>
+<script>
 
+$('#grafica1').click(function () {
+        var divHeight = Math.round($('#imgcol').height());        
+        document.getElementById("imgcol").src = "imgs/impactov1.mp4";
+		document.getElementById("imgcol").play();
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+    });
+    $('#grafica2').click(function () {        
+        var divHeight = Math.round($('#imgcol').height()) - 2;        
+        document.getElementById("imgcol").src = "imgs/impactov2.mp4";
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+    });
+       $('#grafica3').click(function () {        
+        var divHeight = Math.round($('#imgcol').height()) - 2;        
+        document.getElementById("imgcol").src = "imgs/impactov3.mp4";
+		document.getElementById("imgcol").play();
+        document.getElementById("myChart").style.maxHeight = divHeight;
+        $('.highcharts-container').height = divHeight;
+        $('.highcharts-root').height = divHeight;
+    });
+    $(document).ready(function () {
+            var divHeight = Math.round($('#imgcol').height());            
+            document.getElementById("imgcol").src = "imgs/impactov1.mp4";
+			document.getElementById("imgcol").play();
+			document.getElementById("myChart").style.maxHeight = divHeight;
+			$('.highcharts-container').height = divHeight;
+			$('.highcharts-root').height = divHeight;
+    });
+
+</script>
 </html>
